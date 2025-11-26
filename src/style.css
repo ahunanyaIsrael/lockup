@@ -1,186 +1,234 @@
-/* Global Reset */
+/* RESET */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
 
-/* Body & Background */
+/* BACKGROUND */
 body {
-  background: linear-gradient(135deg, #0d1e3b, #184c6e);
-  color: #ffffff;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background: radial-gradient(circle at top, #0a0f24, #030712 60%) fixed;
+  overflow-x: hidden;
+  color: white;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 30px;
-  background-color: #277187;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 14px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.nav-left img {
-  width: 50px;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 45px;
   border-radius: 50%;
 }
 
-.nav-right button {
-  background: #ffffff;
-  color: #277187;
-  padding: 8px 20px;
+.brand h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #99d4ff;
+}
+
+/* WALLET BUTTON */
+.neon-btn {
+  padding: 10px 25px;
+  background: transparent;
+  border: 2px solid #4fc3f7;
+  color: #4fc3f7;
   font-weight: 600;
-  font-size: 14px;
-  border-radius: 6px;
-  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: 0.3s ease;
+  text-transform: uppercase;
 }
 
-.nav-right button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.neon-btn:hover {
+  box-shadow: 0 0 12px #4fc3f7;
+  transform: scale(1.08);
 }
 
-/* Status */
+/* STATUS */
 #status {
   font-size: 14px;
-  font-weight: 500;
-  color: #e0e0e0;
+  opacity: 0.8;
 }
 
-/* Main Form Card */
+/* MAIN */
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
-  padding: 30px;
+  padding: 50px 20px;
 }
 
-.form-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  padding: 30px 40px;
-  border-radius: 16px;
-  max-width: 400px;
+/* MAIN CARD */
+.glass-card {
   width: 100%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  padding: 40px;
+  border-radius: 20px;
+  margin-top: 30px;
+  box-shadow: 0 0 30px rgba(0, 200, 255, 0.15);
 }
 
-.form-card h2 {
+.neon-border {
+  position: relative;
+  z-index: 1;
+}
+
+.neon-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(45deg, #00f0ff, #00a1ff, #ff00ea, #ff0077);
+  background-size: 300% 300%;
+  animation: gradientShift 6s infinite alternate;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* TITLES */
+.title {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #fff;
+  font-size: 26px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #8edfff;
 }
 
-/* Form Inputs */
+/* FORM GROUP */
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 label {
   display: block;
   margin-bottom: 6px;
-  font-weight: 500;
-  color: #ffffffcc;
+  font-size: 15px;
+  opacity: 0.85;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="datetime-local"] {
+input {
   width: 100%;
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 12px 15px;
+  border-radius: 10px;
   border: none;
-  outline: none;
-  font-size: 14px;
-  color: #0d1e3b;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  color: #0a0f24;
+  transition: 0.3s ease;
 }
 
-/* Buttons */
-.form-buttons {
+input:focus {
+  outline: 2px solid #4fc3f7;
+  box-shadow: 0 0 12px #4fc3f7;
+}
+
+/* BUTTON ROW */
+.button-row {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  gap: 12px;
 }
 
-.btn-primary {
-  background-color: #ff7f50;
+/* ACTION BUTTONS */
+.action-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
   color: white;
   border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  flex: 1;
-  margin-right: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: 0.25s ease;
 }
 
-.btn-primary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+.lock {
+  background: linear-gradient(135deg, #ff7200, #ff4500);
 }
 
-.btn-secondary {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  flex: 1;
-  transition: transform 0.2s, box-shadow 0.2s;
+.withdraw {
+  background: linear-gradient(135deg, #04d960, #00a54b);
 }
 
-.btn-secondary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+.action-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
 }
 
-/* Log messages */
+/* LOG WINDOW */
 .log {
   margin-top: 20px;
-  font-size: 14px;
-  color: #ffe;
   max-height: 120px;
   overflow-y: auto;
+  font-size: 13px;
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Progress Bar */
+/* PROGRESS BAR */
 .progress-container {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .progress-bar {
-  width: 100%;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.2);
+  height: 22px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 10px;
   overflow: hidden;
-  margin-top: 5px;
 }
 
 .progress-fill {
   height: 100%;
   width: 0%;
-  background-color: #ff7f50;
-  border-radius: 10px 0 0 10px;
-  transition: width 0.5s ease;
+  background: linear-gradient(90deg, #00eaff, #008cff);
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    filter: brightness(0.8);
+  }
+  to {
+    filter: brightness(1.2);
+  }
 }
 
 #progress-text {
-  display: block;
+  margin-top: 6px;
+  font-size: 13px;
   text-align: right;
-  font-size: 12px;
-  margin-top: 4px;
-  color: #fff;
+  color: #9ae7ff;
 }
