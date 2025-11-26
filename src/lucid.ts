@@ -18,7 +18,7 @@ export async function connectWallet() {
   lucid = await Lucid.new(
     new Blockfrost(
       "https://cardano-preprod.blockfrost.io/api/v0",
-      "preprod2fyiLT8cAkqpgJyJwncWwN2M5X4R8aoo"
+      "preprod2fyiLT8cAkqpgJyJwncWwN2M5X4R8aoo" || "preprodYjRkHfcazNkL0xxG9C2RdUbUoTrG7wip"
     ),
     "Preprod"
   );
