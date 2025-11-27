@@ -25,7 +25,7 @@ export const unlockAda = async () => {
 
         // Decode inline datum before filtering
         const now = BigInt(Math.floor(Date.now() / 1000));
-        const myUTxOs = utxosAtScript.filter(utxo => {
+        const myUTxOs = utxosAtScript.filter((utxo: any )=> {
             if (!utxo.datum) return false;
             try {
                 const dtm = Data.from<SavingsDatumType>(utxo.datum, SavingsDatumType);

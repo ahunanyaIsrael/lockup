@@ -20,11 +20,14 @@ document.querySelector<HTMLButtonElement>("#connect")!.onclick = async () => {
   if (addr) {
     document.querySelector("#status")!.textContent =
       "Connected: " + addr.slice(0, 20) + "...";
+      walletAddr = addr
   }
-  walletAddr = addr
-  updateProgressForWallet(walletAddr);
-  const vAddr = await getValidatorAddress();
-  console.log(vAddr)
+  if (walletAddr){
+
+    updateProgressForWallet(walletAddr);
+    const vAddr = await getValidatorAddress();
+    console.log(vAddr)
+  }
 };
 
 // -------------------------
